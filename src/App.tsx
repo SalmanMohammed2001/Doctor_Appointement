@@ -1,12 +1,13 @@
 
 import './App.css'
+import Layout from "./layout/Layout.tsx";
 
 function App() {
 
 
   return (
     <div>
-        <h1 className={""}>salman</h1>
+        <Layout/>
     </div>
   )
 }
