@@ -1,9 +1,55 @@
+import logo from '../../assets/images/logo.png'
+import {NavLink} from "react-router-dom";
 
+
+const navLink = [
+    {
+        path: '/home',
+        display: 'Home'
+    },
+    {
+        path: '/doctors',
+        display: 'Find a Doctors'
+    },
+    {
+        path: '/service',
+        display: 'Service'
+    },
+    {
+        path: '/contact',
+        display: 'Contact'
+    },
+]
 const Header = () => {
     return (
-        <div>
-            <h1>Header</h1>
-        </div>
+        <header className="header flex items-center">
+            <div className="container">
+                <div className="flex items-center justify-between">
+                    {/*===============logo=====================*/}
+                    <div>
+                        <img src={logo} alt=""/>
+                    </div>
+
+                    <div className="navihation ">
+                        <ul className="menu flex items-center gap-[2.7rem]">
+                            {navLink.map((link, index) => {
+                                return (
+                                    <li key={index}>
+                                        <NavLink to={link.path}
+                                                 className={navClass => navClass.isActive ? "text-primaryColor text-[16px] leading-7" +
+                                                     "font-[600]" : "text-textColor text-[16px] leading-7 font-[500]"}>{link.display}</NavLink>
+                                    </li>
+                                )
+                            })
+
+                            }
+                        </ul>
+                    </div>
+
+                </div>
+
+            </div>
+        </header>
     );
 };
 
