@@ -24,21 +24,24 @@ const navLink = [
 ]
 const Header = () => {
 
-    const headerRef=useRef(null)
-    const menuRef=useRef(null)
+    const headerRef=useRef<any>()
+    const menuRef=useRef<any>()
 
 
-    // @ts-ignore
-    const toggleMenu=()=>menuRef.current.classList.toggle('show_menu')
+
+    const toggleMenu=()=>{
+
+        menuRef.current.classList.toggle('show_menu')
+    }
 
     const handleStickHeader=()=>{
         window.addEventListener('scroll',()=>{
             if(document.body.scrollTop >80 || document.documentElement.scrollTop >80){
 
-                // @ts-ignore
+
                 headerRef.current.classList.add('sticky_header')
             }else {
-                // @ts-ignore
+
                 headerRef.current.classList.remove('sticky_header')
             }
         })
