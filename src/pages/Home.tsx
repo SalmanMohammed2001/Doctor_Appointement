@@ -20,7 +20,7 @@ const Home = () => {
                         className="flex flex-col  lg:flex-row gap-[90px] items-center justify-between  ">
                         {/*=============hero content============*/}
                         <div>
-                            <div className="lg:w-[570px] border-2 border-solid border-amber-300 ">
+                            <div className="lg:w-[570px]  ">
                                 <h1 className="text-[36px] leading-[46px] text-headingColor font-[800] md:text-[60px] md:leading-[70px]">We
                                     help patient live a healthy ,longer life</h1>
 
@@ -155,7 +155,7 @@ const Home = () => {
                 <About/>
             {/*=========================about  section end ==========================*/}
 
-            {/*=========================service  section end ==========================*/}
+            {/*=========================service  section start ==========================*/}
             <section>
                 <div className="container">
                     <div className={"xl:w-[470px] mx-auto"}>
@@ -168,6 +168,21 @@ const Home = () => {
                 </div>
             </section>
             {/*=========================service  section end ==========================*/}
+
+            {/*========================= feature section start ==========================*/}
+            <section>
+                <div className="container">
+                    <div className="flex items-center justify-between flex-col lg:flex-row">
+                        {/*==================feature content===================*/}
+                        <div className="xl:w-[670px]">
+                            <h2 className="heading">Get virtual treatment <br/>anytime</h2>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            {/*========================= feature section end ==========================*/}
         </div>
     );
 };
