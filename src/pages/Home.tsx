@@ -8,6 +8,8 @@ import {BsArrowRight} from 'react-icons/bs'
 import {Link} from "react-router-dom";
 import About from "../components/About/About.tsx";
 
+import ServiceList from "../components/Service/ServiceList.tsx";
+
 const Home = () => {
     return (
         <div>
@@ -162,6 +164,7 @@ const Home = () => {
                             World-class care for everyone .Our health system offers unMatched expert health cre
                         </p>
                     </div>
+                        <ServiceList/>
                 </div>
             </section>
             {/*=========================service  section end ==========================*/}
