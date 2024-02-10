@@ -2,7 +2,7 @@ import logo from '../../assets/images/logo.png'
 import {Link, NavLink} from "react-router-dom";
 import userImg from '../../assets/images/avatar-icon.png'
 import {BiMenu} from 'react-icons/bi'
-import {useRef} from "react";
+import {useEffect, useRef} from "react";
 
 const navLink = [
     {
@@ -24,10 +24,33 @@ const navLink = [
 ]
 const Header = () => {
 
+    const headerRef=useRef(null)
+    const menuRef=useRef(null)
+
+
+    // @ts-ignore
+    const toggleMenu=()=>menuRef.current.classList.toggle('show_menu')
+
+    const handleStickHeader=()=>{
+        window.addEventListener('scroll',()=>{
+            if(document.body.scrollTop >80 || document.documentElement.scrollTop >80){
+
+                // @ts-ignore
+                headerRef.current.classList.add('sticky_header')
+            }else {
+                // @ts-ignore
+                headerRef.current.classList.remove('sticky_header')
+            }
+        })
+    }
+    useEffect(()=>{
+        handleStickHeader()
+        return()=> window.removeEventListener('scroll',handleStickHeader)
+    })
 
 
     return (
-        <header className="header flex items-center">
+        <header className="header flex items-center" ref={headerRef}>
             <div className="container">
                 <div className="flex items-center justify-between">
                     {/*===============logo=====================*/}
@@ -35,7 +58,7 @@ const Header = () => {
                         <img src={logo} alt=""/>
                     </div>
                     {/*============menu==============================*/}
-                    <div className="navihation ">
+                    <div className="navigation " ref={menuRef} onClick={toggleMenu}>
                         <ul className="menu flex items-center gap-[2.7rem]">
                             {navLink.map((link, index) => {
                                 return (
@@ -67,7 +90,7 @@ const Header = () => {
                             Login
                         </button>
                     </Link>
-                    <span className={"md:hidden"}>
+                    <span className={"md:hidden"} onClick={toggleMenu}>
                         <BiMenu className={"w-6 h-6 cursor-pointer"}/>
                     </span>
                 </div>
