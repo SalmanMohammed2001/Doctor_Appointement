@@ -14,6 +14,7 @@ import About from "../components/About/About.tsx";
 import ServiceList from "../components/Service/ServiceList.tsx";
 import DoctorList from "../components/Doctors/DoctorList.tsx";
 import FaqList from "../components/Faq/FaqList.tsx";
+import TestiMonial from "../components/TestMonial/TestiMonial.tsx";
 
 const Home = () => {
     return (
@@ -255,6 +256,21 @@ const Home = () => {
                 </div>
             </section>
             {/*=======================faq section===========================*/}
+
+            {/*=======================testimonial section===========================*/}
+            <section>
+                <div className="container">
+                    <div className={"xl:w-[470px] mx-auto"}>
+                        <h2 className="heading text-center">What Our Patient say</h2>
+                        <p className={"text_para text-center"}>
+                            World-class care for everyone .Our health system offers unMatched expert health cre
+                        </p>
+                    </div>
+                    <TestiMonial/>
+                </div>
+            </section>
+
+            {/*=======================testimonial section===========================*/}
         </div>
     );
 };
