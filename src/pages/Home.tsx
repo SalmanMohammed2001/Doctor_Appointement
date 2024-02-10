@@ -6,6 +6,7 @@ import icon02 from '../assets/images/icon02.png'
 import icon03 from '../assets/images/icon03.png'
 import {BsArrowRight} from 'react-icons/bs'
 import {Link} from "react-router-dom";
+import About from "../components/About/About.tsx";
 
 const Home = () => {
     return (
@@ -147,6 +148,12 @@ const Home = () => {
 
                 </div>
             </section>
+
+            {/*=========================about  section start==========================*/}
+
+                <About/>
+
+            {/*=========================about  section end ==========================*/}
         </div>
     );
 };
