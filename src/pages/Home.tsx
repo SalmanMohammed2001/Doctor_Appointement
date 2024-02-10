@@ -5,12 +5,13 @@ import icon01 from '../assets/images/icon01.png'
 import icon02 from '../assets/images/icon02.png'
 import icon03 from '../assets/images/icon03.png'
 import featureImage from '../assets/images/feature-img.png'
-import videoIcon from '../assets/images/video-icon.png'
+
 import {BsArrowRight} from 'react-icons/bs'
 import {Link} from "react-router-dom";
 import About from "../components/About/About.tsx";
 
 import ServiceList from "../components/Service/ServiceList.tsx";
+import DoctorList from "../components/Doctors/DoctorList.tsx";
 
 const Home = () => {
     return (
@@ -219,6 +220,20 @@ const Home = () => {
             </section>
 
             {/*========================= feature section end ==========================*/}
+
+            {/*==============our great doctors============start */}
+            <section>
+                <div className="container">
+                    <div className={"xl:w-[470px] mx-auto"}>
+                        <h2 className="heading text-center">Our Great Doctors</h2>
+                        <p className={"text_para text-center"}>
+                            World-class care for everyone .Our health system offers unMatched expert health cre
+                        </p>
+                    </div>
+                    <DoctorList/>
+                </div>
+            </section>
+            {/*==============our great doctors============end*/}
         </div>
     );
 };
