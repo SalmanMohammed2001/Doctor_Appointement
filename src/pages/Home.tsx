@@ -1,3 +1,7 @@
+
+import heroImh01 from '../assets/images/hero-img01.png'
+import heroImh02 from '../assets/images/hero-img02.png'
+import heroImh03 from '../assets/images/hero-img03.png'
 const Home = () => {
     return (
         <div>
@@ -46,10 +50,21 @@ const Home = () => {
                             </div>
                         </div>
                         {/*=============hero content============*/}
+                        <div className="flex gap-[30px] justify-end">
+                            <div>
+                                <img className="w-full" src={heroImh01} alt=""/>
+                            </div>
+                            <div className="m-[30px]">
+                                <img className="w-full mb-[30px]" src={heroImh02} alt=""/>
+                                <img className="w-full" src={heroImh03} alt=""/>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
-
             </section>
+
+            {/*===============Hero end=========================================*/}
         </div>
     );
 };
