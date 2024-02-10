@@ -150,10 +150,21 @@ const Home = () => {
             </section>
 
             {/*=========================about  section start==========================*/}
-
                 <About/>
-
             {/*=========================about  section end ==========================*/}
+
+            {/*=========================service  section end ==========================*/}
+            <section>
+                <div className="container">
+                    <div className={"xl:w-[470px] mx-auto"}>
+                        <h2 className="heading text-center">Our Medical Services</h2>
+                        <p className={"text_para text-center"}>
+                            World-class care for everyone .Our health system offers unMatched expert health cre
+                        </p>
+                    </div>
+                </div>
+            </section>
+            {/*=========================service  section end ==========================*/}
         </div>
     );
 };
