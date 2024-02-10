@@ -4,6 +4,8 @@ import heroImh03 from '../assets/images/hero-img03.png'
 import icon01 from '../assets/images/icon01.png'
 import icon02 from '../assets/images/icon02.png'
 import icon03 from '../assets/images/icon03.png'
+import featureImage from '../assets/images/feature-img.png'
+import videoIcon from '../assets/images/video-icon.png'
 import {BsArrowRight} from 'react-icons/bs'
 import {Link} from "react-router-dom";
 import About from "../components/About/About.tsx";
@@ -81,7 +83,8 @@ const Home = () => {
                         <h2 className="heading text-center">
                             Providing the best medical service
                         </h2>
-                        <p className="text_para text-center"> World-class care for everyone our health System offers unmatched expert health care</p>
+                        <p className="text_para text-center"> World-class care for everyone our health System offers
+                            unmatched expert health care</p>
                     </div>
 
                     <div
@@ -152,7 +155,7 @@ const Home = () => {
             </section>
 
             {/*=========================about  section start==========================*/}
-                <About/>
+            <About/>
             {/*=========================about  section end ==========================*/}
 
             {/*=========================service  section start ==========================*/}
@@ -164,7 +167,7 @@ const Home = () => {
                             World-class care for everyone .Our health system offers unMatched expert health cre
                         </p>
                     </div>
-                        <ServiceList/>
+                    <ServiceList/>
                 </div>
             </section>
             {/*=========================service  section end ==========================*/}
@@ -176,11 +179,44 @@ const Home = () => {
                         {/*==================feature content===================*/}
                         <div className="xl:w-[670px]">
                             <h2 className="heading">Get virtual treatment <br/>anytime</h2>
+                            <ul className="text_para">
+                                1. Schedule the appointment directly
+                            </ul>
+                            <ul className="text_para">
+                                2. Search for you physician here and contact their office
+                            </ul>
+                            <ul className="text_para">
+                                3. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus beatae cumque
+                                deserunt dolorem expedita
+                            </ul>
+                            <Link to={"/"}>
+                                <button className={"btn"}> Learn More</button>
+                            </Link>
                         </div>
+                        <div className={" relative z-10    xl:w-[770px] flex justify-end mt-[50px] lg:mt-0"}>
+                            <img src={featureImage} className={"w-3/4"} alt=""/>
+
+                        {/*    <div className="w-[150px] lg:w-[248px] bg-white absolute bottom-[50px] left-0 md:bottom-[100px]
+                            md:left-6 z-20 p-2 lg:pt-4 lg:px-4 lg:pb-[26px] rounded-[10px] border-2 border-amber-950 ">
+
+                                <div className="flex items-center gap-[6px] lg:gap-3">
+                                    <p className="text-[10px] leading-[10px] lg:text-[14px]  text-textColor font-[400] lg:leading-7"> Tue,24</p>
+                                    <p className="text-[10px] leading-[10px] lg:text-[14px]  text-textColor font-[600] lg:leading-7"> 10:00Am</p>
+                                    <span className={"w-5 h-5  lg:w-[34px] lg:h-[34px] flex items-center justify-center bg-yellowColor rounded py-1 px-[6px] lg:py-3 lg:px-[9px] "}>
+                                        <img src={videoIcon} alt=""/>
+                                    </span>
+                                </div>
+                                    <div className="border-2 border-amber-950 w-[65px]  lg:w-[96px] bg-[#CCF0F3] py-1 px-2 rounded-full lg:py-[6x] lg:px-[10px] text-[8px] leading-7 lg:text-[12px]
+                                        lg:leading-4 text-irisBlueColor font-[500] mt-2 lg:mt-4">
+                                        Consulate
+                                    </div>
+
+                            </div>*/}
+                        </div>
+
                     </div>
                 </div>
             </section>
-
 
             {/*========================= feature section end ==========================*/}
         </div>
