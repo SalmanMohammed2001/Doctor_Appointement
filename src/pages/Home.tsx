@@ -12,10 +12,10 @@ const Home = () => {
     return (
         <div>
             {/*===============Hero section=========================================*/}
-            <section className="hero_section  border-2 border-solid  border-green-800 pt-[60px] 2xl:h-[800px]">
+            <section className="hero_section   pt-[60px] 2xl:h-[800px]">
                 <div className="container">
                     <div
-                        className="flex flex-col  lg:flex-row gap-[90px] items-center justify-between border-2 border-solid border-blue-800 ">
+                        className="flex flex-col  lg:flex-row gap-[90px] items-center justify-between  ">
                         {/*=============hero content============*/}
                         <div>
                             <div className="lg:w-[570px] border-2 border-solid border-amber-300 ">
@@ -83,7 +83,7 @@ const Home = () => {
                     </div>
 
                     <div
-                        className="grid grid-cols-1 md:grid-cols-2  lg:grid-cols-3 gap-5 lg:gap-[30px] mt-[30px] border-2 border-solid border-amber-950">
+                        className="grid grid-cols-1 md:grid-cols-2  lg:grid-cols-3 gap-5 lg:gap-[30px] mt-[30px] ">
                         <div className="py-[30px] px-5 ">
                             <div className="flex items-center justify-center">
                                 <img src={icon01} alt=""/>
