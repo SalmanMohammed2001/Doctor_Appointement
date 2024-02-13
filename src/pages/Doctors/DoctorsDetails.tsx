@@ -9,8 +9,8 @@ const DoctorsDetails = () => {
     const[tab,setTab]=useState('about')
     return (
         <section>
-            <div className="container">
-                <div className={"grid md:grid-cols-3 gap-[50px]"}>
+            <div className="container ">
+                <div className={"grid md:grid-cols-3 gap-[50px] "}>
                     <div className={"md:col-span-2"}>
                         <div className={"flex items-center gap-5"}>
                             <figure className={"max-w-[200px] max-h-[200px]"}>
@@ -37,13 +37,13 @@ const DoctorsDetails = () => {
                             </div>
                         </div>
 
-                        <div className={"mt-[50px] border-b border-solid border-[#0066ff34]"}>
+                        <div className={"mt-[50px] border-b border-solid border-[#0066ff34] "}>
                                 <button onClick={()=>setTab('about')} className={`${tab==='about' && "border-b border-solid border-primaryColor"}  py-2 px-5 mr-5 text-[16px] leading-7 text-headingColor font-semibold`}> About</button>
                                 <button onClick={()=>setTab('feedback')} className={`${tab==='feedback' && "border-b border-solid border-primaryColor"}  py-2 px-5 mr-5 text-[16px] leading-7 text-headingColor font-semibold`}> Feedback</button>
 
                         </div>
 
-                        <div className={"mt-5"}>
+                        <div className={"mt-[50px] "}>
                             {
                                 tab==='about' && <DoctorAbout/>
 
