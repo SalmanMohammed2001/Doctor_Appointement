@@ -3,6 +3,7 @@ import starIcon from '../../assets/images/Star.png'
 import {useState} from "react";
 import DoctorAbout from "./DoctorAbout.tsx";
 import Feedback from "./Feedback.tsx";
+import SidePanel from "./SidePanel.tsx";
 
 const DoctorsDetails = () => {
 
@@ -51,12 +52,12 @@ const DoctorsDetails = () => {
                             {
                                 tab==='feedback' && <Feedback/>
                             }
-
                         </div>
-
-
-
                     </div>
+
+                 <div>
+                     <SidePanel/>
+                 </div>
                 </div>
             </div>
         </section>
