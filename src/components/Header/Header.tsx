@@ -23,34 +23,27 @@ const navLink = [
     },
 ]
 const Header = () => {
-
     const headerRef=useRef<any>()
     const menuRef=useRef<any>()
-
-
-
     const toggleMenu=()=>{
-
         menuRef.current.classList.toggle('show_menu')
     }
 
     const handleStickHeader=()=>{
         window.addEventListener('scroll',()=>{
-            if(document.body.scrollTop >600 || document.documentElement.scrollTop >600){
-
-
+            if(document.body.scrollTop > 100  || document.documentElement.scrollTop > 100){
                 headerRef.current.classList.add('sticky_header')
             }else {
-
                 headerRef.current.classList.remove('sticky_header')
             }
         })
+
     }
+
     useEffect(()=>{
         handleStickHeader()
-        return()=> window.removeEventListener('scroll',handleStickHeader)
+        return()=>window.removeEventListener('scroll',handleStickHeader)
     })
-
 
     return (
         <header className="header flex items-center" ref={headerRef}>
