@@ -24,17 +24,17 @@ const Login = () => {
                     <div className={"mb-5"}>
                         <input type="email" placeholder={"Enter the email"} name={"email"} value={formData.email}
                                onChange={handleInputChange}
-                               className={"w-full px-4 py-3 border-b border-solid border-[#0066ff61] focus:outline-none" +
+                               className={"w-full  py-3 border-b border-solid border-[#0066ff61] focus:outline-none" +
                                    " focus:border-primaryColor text-[16px] " +
-                                   "leading-7 text-headingColor placeholder:text-textColor rounded-md cursor-pointer "}
+                                   "leading-7 text-headingColor placeholder:text-textColor  cursor-pointer "}
                         />
                     </div>
                     <div className={"mb-5"}>
                         <input type="password" placeholder={"Enter the password"} name={"email"} value={formData.password}
                                onChange={handleInputChange}
-                               className={"w-full px-4 py-3 border-b border-solid border-[#0066ff61] focus:outline-none" +
+                               className={"w-full  py-3 border-b border-solid border-[#0066ff61] focus:outline-none" +
                                    " focus:border-primaryColor text-[16px] " +
-                                   "leading-7 text-headingColor placeholder:text-textColor rounded-md cursor-pointer "}
+                                   "leading-7 text-headingColor placeholder:text-textColor  cursor-pointer "}
                         />
                     </div>
 
@@ -43,7 +43,7 @@ const Login = () => {
                     </div>
 
                     <p className={"mt-5 text-center text-textColor cursor-pointer"}>
-                        Dont have an account? <Link to={"/signup"} className={"text-primaryColor font-medium"}> Register</Link>
+                        Dont have an account? <Link to={"/register"} className={"text-primaryColor font-medium"}> Register</Link>
                     </p>
 
                 </form>

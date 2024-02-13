@@ -19,6 +19,7 @@ const Router = () => {
                 <Route path={"/register"} element={<Signup/>}/>
                 <Route path={"/contact"} element={<Contact/>}/>
                 <Route path={"/service"} element={<Service/>}/>
+
             </Routes>
         </div>
     );
