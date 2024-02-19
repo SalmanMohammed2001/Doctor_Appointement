@@ -1,16 +1,62 @@
-import {useState} from "react";
-import {Link} from "react-router-dom";
+import {useContext, useState} from "react";
+import {Link, useNavigate} from "react-router-dom";
+import axios from "axios";
+import {BASE_URL} from "../../config.ts";
+import {toast} from "react-toastify";
+import {authContext} from "../context/AuthContext.tsx";
 
 
 const Login = () => {
+
+    const navigate=useNavigate()
+
 
     const [formData, setFormData] = useState<any>({
         email: "",
         password: ""
     })
 
+    const [loading,setLoading]=useState(false)
+
+    // @ts-ignore
+    const {dispatch}=useContext(authContext)
+
     const handleInputChange = (e: any) => {
         setFormData({...formData, [e.target.name]: e.target.value})
+    }
+
+    const submitHandle=async  event=>{
+        event.preventDefault()
+        try{
+            axios.post(`${BASE_URL}/auth/login`, formData).then((res)=>{
+                if (res){
+                      dispatch({
+                           type:"LOGIN_SUCCESS",
+                           payload:{
+                               user:res.data.data,
+                               token:res.data.token,
+                               role:res.data.message
+                           }
+                       })
+
+                  setLoading(false)
+                    console.log(res.data ,'login data')
+
+                  toast.success(res.data.message)
+                    navigate('/home')
+                }
+            })
+
+
+
+
+        }catch (error){
+            // @ts-ignore
+            toast.error(error.message)
+            setLoading(false)
+
+        }
+
     }
 
     return (
@@ -20,7 +66,7 @@ const Login = () => {
                 <h3 className={"text-headingColor text-[22px] leading-9 font-bold mb-10"}>
                     Hello! <span className={"text-primaryColor"}>Welcome</span> Back
                 </h3>
-                <form action="" className={"py-4 md:py-0"}>
+                <form action="" className={"py-4 md:py-0"} onSubmit={submitHandle}>
                     <div className={"mb-5"}>
                         <input type="email" placeholder={"Enter the email"} name={"email"} value={formData.email}
                                onChange={handleInputChange}
@@ -39,7 +85,7 @@ const Login = () => {
                     </div>
 
                     <div className={"mt-7"}>
-                        <button type={"submit"} className={"w-full bg-primaryColor text-white text-[16px] px-4 py-3 rounded-lg "}>Login</button>
+                        <button type={"submit"} className={"w-full bg-primaryColor text-white text-[16px] px-4 py-3 rounded-lg "} onClick={submitHandle}>Login</button>
                     </div>
 
                     <p className={"mt-5 text-center text-textColor cursor-pointer"}>
