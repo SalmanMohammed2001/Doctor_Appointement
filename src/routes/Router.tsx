@@ -6,6 +6,8 @@ import Login from "../pages/Login.tsx";
 import Signup from "../pages/Signup.tsx";
 import Contact from "../pages/Contact.tsx";
 import Service from "../pages/Service.tsx";
+import MyAccount from "../DashBoard/user-acount/MyAccount.tsx";
+import Dashboard from "../DashBoard/doctor-acount/Dashboard.tsx";
 
 const Router = () => {
     return (
@@ -19,6 +21,8 @@ const Router = () => {
                 <Route path={"/register"} element={<Signup/>}/>
                 <Route path={"/contact"} element={<Contact/>}/>
                 <Route path={"/service"} element={<Service/>}/>
+                <Route path={"/users/profile/me"} element={<MyAccount/>}/>
+                <Route path={"/doctor/profile/me"} element={<Dashboard/>}/>
 
             </Routes>
         </div>

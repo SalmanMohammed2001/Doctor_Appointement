@@ -85,16 +85,18 @@ const Header = () => {
 
                     {
                         token && user ? (
-                            <div>
-                                <Link to={`${role === 'doctor' ? '/doctor/profile/me' : '/user/profile/me'}`}>
-                                    <figure className="w-[35px] h-[35px] rounded-full cursor-pointer">
-                                        <img src={user?.photo} className="w-full rounded-full" alt=""/>
-                                    </figure>
-                                    <h1>{user?.name}</h1>
-                                </Link>
+                            <>
+                                <div>
+                                    <Link to={`${role === 'doctor' ? '/doctor/profile/me' : '/user/profile/me'}`}>
+                                        <figure className="w-[35px] h-[35px] rounded-full cursor-pointer">
+                                            <img src={user?.photo} className="w-full rounded-full" alt=""/>
+                                        </figure>
 
-                            </div>
+                                    </Link>
 
+                                </div>
+                                <h1>{user?.name}</h1>
+                            </>
                         ):(
                             <Link to={"/login"}>
                                 <button className="bg-primaryColor py-2 px-6 text-white font-[600] h-[44px] flex items-center
