@@ -3,6 +3,7 @@ import {authContext} from "../context/AuthContext.tsx";
 import {Navigate} from "react-router";
 
 
+// @ts-ignore
 const ProtectRoute = ({children,allowRoles}) => {
 
     const {token,role}=useContext(authContext);

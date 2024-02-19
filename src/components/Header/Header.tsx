@@ -51,9 +51,7 @@ const Header = () => {
         return()=>window.removeEventListener('scroll',handleStickHeader)
 
     })
-    console.log(user)
-    console.log(role)
-    console.log(token)
+
     return (
         <header className="header flex items-center" ref={headerRef}>
             <div className="container">

@@ -3,10 +3,11 @@ import signup from '../assets/images/signup.gif'
 import {Link, useNavigate} from "react-router-dom";
 import {useState} from "react";
 import uploadImageCloudinary from "../utils/uploadImageCloudinary.ts";
-import  axios from "axios";
-import {BASE_URL} from "../../config.ts";
+
 import {toast} from "react-toastify";
 import {HashLoader} from "react-spinners";
+import axios from "axios";
+import {BASE_URL} from "../../config.ts";
 
 
 
@@ -45,12 +46,11 @@ const Signup = () => {
 
     const submitHandle=async  (event: { preventDefault: () => void; })=>{
         event.preventDefault()
-
-
         try{
 
-         axios.post(`${BASE_URL}/auth/register`, formData).then((res)=>{
+            console.log(formData)
 
+         axios.post(`${BASE_URL}/auth/register`, formData).then((res)=>{
              if (res){
                  setLoading(false)
                  toast.success(res.data.message)
@@ -137,7 +137,7 @@ const Signup = () => {
                                     >
                                         <option> Select</option>
                                         <option value={"male"}> Male</option>
-                                        <option value={"feMale"}> Female</option>
+                                        <option value={"female"}> Female</option>
                                         <option value={"other"}> Other</option>
 
                                     </select>
