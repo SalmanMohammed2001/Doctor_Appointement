@@ -1,7 +1,9 @@
 
+
+
 const upload_preset=import.meta.env.VITE_UPLOAD_PRESET
 const cloud_name=import.meta.env.VITE_CLOUD_NAME
-const  uploadImageCloudinary = async file=>{
+const  uploadImageCloudinary = async (file: string | Blob)=>{
 
     const  uploadData=new FormData()
     uploadData.append('file',file)
@@ -18,6 +20,8 @@ const  uploadImageCloudinary = async file=>{
 
     return data
 
+   /* const response= await axios.post(`https://api.cloudinary.com/v1_1/${cloud_name}/image/upload`,uploadData)
+    return response;*/
 }
 
 export default uploadImageCloudinary

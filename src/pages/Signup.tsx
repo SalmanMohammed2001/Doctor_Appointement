@@ -1,13 +1,24 @@
 import signup from '../assets/images/signup.gif'
 import avatar from '../assets/images/doctor-img01.png'
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import {useState} from "react";
 import uploadImageCloudinary from "../utils/uploadImageCloudinary.ts";
+import  axios from "axios";
+import {BASE_URL} from "../../config.ts";
+import {toast} from "react-toastify";
+import {HashLoader} from "react-spinners";
+
+
 
 
 const Signup = () => {
+    const navigate=useNavigate()
+
     const [selectFile,setSelectFile]=useState(null)
     const [previewUrl,setPreviewUrl]=useState("")
+    const [loading,setLoading]=useState(false)
+
+
     const [formData, setFormData] = useState<any>({
         name:"",
         email: "",
@@ -24,15 +35,42 @@ const Signup = () => {
     const handleFileInpurChange = async (e: any) => {
        const  file:any=e.target.files[0]
      const  data=   await uploadImageCloudinary(file)
-        console.log(data)
+
+
+        setPreviewUrl(data.url)
+        setSelectFile(data.url)
+        setFormData({...formData,photo:data.url})
+
     }
 
     const submitHandle=async  (event: { preventDefault: () => void; })=>{
         event.preventDefault()
 
 
-        console.log(formData)
+        try{
+
+         axios.post(`${BASE_URL}/auth/register`, formData).then((res)=>{
+
+             if (res){
+                 setLoading(false)
+                 toast.success(res.data.message)
+                 navigate('/login')
+             }
+         })
+
+
+
+
+        }catch (error){
+           // @ts-ignore
+            toast.error(error.message)
+            setLoading(false)
+
+        }
+
     }
+
+
 
 
     return (
@@ -87,7 +125,7 @@ const Signup = () => {
                                         className={"text-headingColor font-semibold text-[15px] leading-7 px-4 py-3 focus:outline-none"}
                                     >
                                         <option value={"patient"}> Patient</option>
-                                        <option value={"Doctor"}> Doctor</option>
+                                        <option value={"doctor"}> Doctor</option>
 
                                     </select>
                                 </label>
@@ -107,10 +145,12 @@ const Signup = () => {
                             </div>
 
                             <div className={"mb-5 flex items-center gap-3"}>
-                                <figure
+
+
+                                { selectFile && <figure
                                     className={"w-[60px] h-[60px] rounded-full border-2 border-primaryColor border-solid flex items-center justify-center"}>
-                                    <img src={avatar} alt="" className={"w-full rounded-full "}/>
-                                </figure>
+                                    <img src={previewUrl} alt="" className={"w-full rounded-full "}/>
+                                </figure>}
                                 <div className={"relative w-[160px] h-[50px]"}>
                                     <input
                                         type="file"
@@ -131,8 +171,11 @@ const Signup = () => {
                             </div>
 
                             <div className={"mt-7"}>
-                                <button type={"submit"}
-                                        className={"w-full bg-primaryColor text-white text-[16px] px-4 py-3 rounded-lg "}>Signup
+                                <button
+                                    disabled={loading && true}
+                                    type={"submit"}
+                                        className={"w-full bg-primaryColor text-white text-[16px] px-4 py-3 rounded-lg "}>
+                                    {loading ? <HashLoader size={35} color="white"/> :'Signup'}
                                 </button>
                             </div>
 
