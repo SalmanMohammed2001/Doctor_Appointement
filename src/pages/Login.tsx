@@ -4,6 +4,7 @@ import axios from "axios";
 import {BASE_URL} from "../../config.ts";
 import {toast} from "react-toastify";
 import {authContext} from "../context/AuthContext.tsx";
+import {HashLoader} from "react-spinners";
 
 
 const Login = () => {
@@ -27,6 +28,7 @@ const Login = () => {
 
     const submitHandle=async  event=>{
         event.preventDefault()
+        setLoading(true)
         try{
             axios.post(`${BASE_URL}/auth/login`, formData).then((res)=>{
                 if (res){
@@ -35,12 +37,12 @@ const Login = () => {
                            payload:{
                                user:res.data.data,
                                token:res.data.token,
-                               role:res.data.message
+                               role:res.data.role
                            }
                        })
 
                   setLoading(false)
-                    console.log(res.data ,'login data')
+                   console.log(res.data.token)
 
                   toast.success(res.data.message)
                     navigate('/home')
@@ -85,7 +87,9 @@ const Login = () => {
                     </div>
 
                     <div className={"mt-7"}>
-                        <button type={"submit"} className={"w-full bg-primaryColor text-white text-[16px] px-4 py-3 rounded-lg "} onClick={submitHandle}>Login</button>
+                        <button type={"submit"} className={"w-full bg-primaryColor text-white text-[16px] px-4 py-3 rounded-lg "} onClick={submitHandle}>
+                            {loading ? <HashLoader size={35} color="white"/> :'Login'}
+                        </button>
                     </div>
 
                     <p className={"mt-5 text-center text-textColor cursor-pointer"}>
