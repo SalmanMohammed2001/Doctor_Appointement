@@ -2,6 +2,7 @@ import signup from '../assets/images/signup.gif'
 import avatar from '../assets/images/doctor-img01.png'
 import {Link} from "react-router-dom";
 import {useState} from "react";
+import uploadImageCloudinary from "../utils/uploadImageCloudinary.ts";
 
 
 const Signup = () => {
@@ -20,17 +21,17 @@ const Signup = () => {
         setFormData({...formData, [e.target.name]: e.target.value})
     }
 
-    const handleFileInpurChange = (e: any) => {
+    const handleFileInpurChange = async (e: any) => {
        const  file:any=e.target.files[0]
-
-        //latter we will use cloudfoundry upload
-        console.log(file)
+     const  data=   await uploadImageCloudinary(file)
+        console.log(data)
     }
 
     const submitHandle=async  (event: { preventDefault: () => void; })=>{
         event.preventDefault()
 
 
+        console.log(formData)
     }
 
 
@@ -53,7 +54,7 @@ const Signup = () => {
 
                         <form action="" onSubmit={submitHandle}>
                             <div className={"mb-5"}>
-                                <input type="email" placeholder={"Full Name"} name={"name"} value={formData.name} onChange={handleInputChange}
+                                <input type="text" placeholder={"Full Name"} name={"name"} value={formData.name} onChange={handleInputChange}
 
                                        className={"w-[90%] pr-4  py-3 border-b border-solid border-[#0066ff61] focus:outline-none" +
                                            " focus:border-primaryColor text-[16px] " +
@@ -61,7 +62,7 @@ const Signup = () => {
                                 />
                             </div>
                             <div className={"mb-5"}>
-                                <input type="email" placeholder={"Enter Your Email"} name={"email"} value={formData.email} onChange={handleInputChange}
+                                <input type="text" placeholder={"Enter Your Email"} name={"email"} value={formData.email} onChange={handleInputChange}
 
                                        className={"w-[90%] pr-4  py-3 border-b border-solid border-[#0066ff61] focus:outline-none" +
                                            " focus:border-primaryColor text-[16px] " +
@@ -69,7 +70,7 @@ const Signup = () => {
                                 />
                             </div>
                             <div className={"mb-5"}>
-                                <input type="email" placeholder={"Enter Your password"} name={"password"} value={formData.password} onChange={handleInputChange}
+                                <input type="text" placeholder={"Enter Your password"} name={"password"} value={formData.password} onChange={handleInputChange}
 
                                        className={"w-[90%] pr-4  py-3 border-b border-solid border-[#0066ff61] focus:outline-none" +
                                            " focus:border-primaryColor text-[16px] " +

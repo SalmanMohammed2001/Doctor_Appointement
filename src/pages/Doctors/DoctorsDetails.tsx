@@ -56,6 +56,7 @@ const DoctorsDetails = () => {
                     </div>
 
                  <div>
+
                      <SidePanel/>
                  </div>
                 </div>

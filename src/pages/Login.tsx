@@ -30,7 +30,7 @@ const Login = () => {
                         />
                     </div>
                     <div className={"mb-5"}>
-                        <input type="password" placeholder={"Enter the password"} name={"email"} value={formData.password}
+                        <input type="password" placeholder={"Enter the password"} name={"password"} value={formData.password}
                                onChange={handleInputChange}
                                className={"w-full  py-3 border-b border-solid border-[#0066ff61] focus:outline-none" +
                                    " focus:border-primaryColor text-[16px] " +

@@ -29,6 +29,7 @@ const Feedback = () => {
                         </div>
                     </div>
 
+
                     <div className={"flex gap-1"}>
                         {
                             [...Array(5).keys()].map((_, index) =>
@@ -38,6 +39,7 @@ const Feedback = () => {
                         }
                     </div>
                 </div>
+
             </div>
 
             {!showfeedbackForm && <div className={"text-center"}>
